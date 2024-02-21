@@ -1,0 +1,108 @@
+@import "../../../assets/styles/main";
+@import "../../../assets/styles/colors";
+
+.main {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient($c-yellow, $c-blue);
+
+    .picture {
+        width: 40%;
+        position: absolute;
+        overflow: hidden;
+        right: 0;
+        top: 12%;
+
+        &::after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+        }
+
+        img {
+            border-radius: 50%;
+            border: 5px solid $c-auqamarine;
+            position: absolute;
+            top: 4%;
+            right: -10%;
+            height: 90%;
+        }
+
+        .ring1 {
+            border-radius: 50%;
+            border: 5px solid rgba($c-auqamarine, 0.5);
+            position: absolute;
+            top: 2%;
+            right: -12%;
+
+            width: 94%;
+            height: 94%;
+        }
+
+        .ring2 {
+            border-radius: 50%;
+            border: 5px solid rgba($c-auqamarine, 0.2);
+            position: absolute;
+            top: 0;
+            right: -14%;
+
+            width: 98%;
+            height: 98%;
+        }
+    }
+
+    .left {
+        width: 50%;
+        height: 50%;
+        position: absolute;
+        left: 12%;
+        top: 25%;
+
+        .title {
+            background-color: $c-auqamarine;
+            padding: 10px 20px 10px 20px;
+            border-radius: 20px;
+            width: fit-content;
+
+            h1 {
+                color: $c-white;
+                font-size: 100px;
+                margin: 0;
+                @include poppins-medium;
+
+                @media screen and (max-width: 600px) {
+                    font-size: 40px;
+                }        
+            }
+
+            h2 {
+                color: $c-yellow;
+                font-size: xx-large;
+                padding-left: 2%;
+                margin-top: 1%;
+                @include poppins-medium;
+
+                @media screen and (max-width: 600px) {
+                    font-size: large;
+                }        
+            }
+        }
+
+        p {
+            margin-left: 5%;
+            margin-top: 2%;
+            width: 75%;
+            color: $c-white;
+            font-size: larger;
+            @include poppins-medium;
+
+            @media screen and (max-width: 600px) {
+                font-size: medium;
+                width: 100%;
+            }        
+        }
+    }
+}

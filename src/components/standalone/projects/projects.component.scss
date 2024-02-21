@@ -1,0 +1,9 @@
+@import "../../../assets/styles/main";
+@import "../../../assets/styles/colors";
+
+.projects {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: linear-gradient($c-blue, $c-pink);
+}
