@@ -1,11 +1,24 @@
 @import "../../../assets/styles/main";
 @import "../../../assets/styles/colors";
 
+
+@property --gradient-rotation {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes spin {
+    0% { --gradient-rotation: 0deg; }
+    100% { --gradient-rotation: 360deg; }
+}
+
 .main {
     height: 100%;
     width: 100%;
     position: relative;
     overflow: hidden;
+    z-index: -1;
 
     background-color: $c-black;
     
@@ -15,51 +28,23 @@
         margin-left: 1.5%;
         margin-top: 1%;
         border-radius: 30px;
+        position: relative;
+        background-color: transparent;
+        z-index: 1;
 
-        background: linear-gradient($c-yellow, $c-blue);
-        .picture {
-            width: 40%;
+        &::before, &::after {
+            z-index: 0;
+            content: "";
             position: absolute;
-            overflow: hidden;
-            right: 0;
-            top: 12%;
+            inset: 0.5rem;
+            border-radius: inherit;
     
-            &::after {
-                content: "";
-                display: block;
-                padding-bottom: 100%;
-            }
-    
-            img {
-                border-radius: 50%;
-                border: 5px solid $c-auqamarine;
-                position: absolute;
-                top: 4%;
-                right: -10%;
-                height: 90%;
-            }
-    
-            .ring1 {
-                border-radius: 50%;
-                border: 5px solid rgba($c-auqamarine, 0.5);
-                position: absolute;
-                top: 2%;
-                right: -12%;
-    
-                width: 94%;
-                height: 94%;
-            }
-    
-            .ring2 {
-                border-radius: 50%;
-                border: 5px solid rgba($c-auqamarine, 0.2);
-                position: absolute;
-                top: 0;
-                right: -14%;
-    
-                width: 98%;
-                height: 98%;
-            }
+            background: linear-gradient(var(--gradient-rotation),$c-yellow, $c-blue);
+            animation: spin 20s linear infinite; 
+        }
+        
+        &::after {
+            filter: blur(0.5rem);   
         }
     
         .left {
@@ -68,6 +53,7 @@
             position: absolute;
             left: 12%;
             top: 25%;
+            z-index: inherit;
     
             .title {
                 background-color: $c-auqamarine;
@@ -113,5 +99,55 @@
                 }        
             }
         }    
+    }
+
+    .picture {
+        width: 40%;
+        position: absolute;
+        overflow: hidden;
+        right: 0;
+        top: 12%;
+        z-index: 1;
+
+        &::after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+            z-index: inherit;
+        }
+
+        img {
+            z-index: inherit;
+            border-radius: 50%;
+            border: 5px solid $c-auqamarine;
+            position: absolute;
+            top: 4%;
+            right: -10%;
+            height: 90%;
+        }
+
+        .ring1 {
+            z-index: inherit;
+            border-radius: 50%;
+            border: 5px solid rgba($c-auqamarine, 0.5);
+            position: absolute;
+            top: 2%;
+            right: -12%;
+
+            width: 94%;
+            height: 94%;
+        }
+
+        .ring2 {
+            border-radius: 50%;
+            border: 5px solid rgba($c-auqamarine, 0.2);
+            position: absolute;
+            top: 0;
+            right: -14%;
+            z-index: inherit;
+
+            width: 98%;
+            height: 98%;
+        }
     }
 }
