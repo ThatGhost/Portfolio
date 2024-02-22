@@ -7,5 +7,7 @@
     .card {
         height: 100svh;
         width: 100%;
+
+        scroll-snap-align: start;
     }
 }
