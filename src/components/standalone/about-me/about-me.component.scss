@@ -25,14 +25,22 @@
 
     &::before {
         position: absolute;
-        inset: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         border-radius: inherit;
-        z-index: 1;
+        z-index: 2;
         background: $c-black; 
+        transition: top 1s ease;
     }
 
     &:hover:after {
         filter: blur(.5rem);
+    }
+
+    &:hover:before {
+        top: 100%;
     }
 }
 
@@ -72,10 +80,39 @@
             cursor: pointer;
 
             h2 {
-                z-index: inherit;
+                z-index: 3;
                 color: $c-white;
                 font-size: x-large;
-                @include poppins-medium;        
+                @include poppins-medium;      
+                transition: color .5s ease;  
+            }
+
+            h3 {
+                z-index: 1;
+                color: $c-white;
+                font-size: x-large;
+                @include poppins-medium;      
+                position: absolute;
+                top: 5%;
+                left: 5%;
+            }
+
+            p {
+                z-index: 1;
+                color: $c-white;
+                font-size: medium;
+                @include poppins-medium;      
+                position: absolute;
+                top: 15%;
+                left: 5%;
+                width: 90%;
+            }
+
+            &:hover {
+
+                h2 {
+                    color: transparent;
+                }
             }
         }
 
