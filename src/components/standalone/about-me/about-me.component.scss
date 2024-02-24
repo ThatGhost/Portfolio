@@ -53,14 +53,15 @@
 
     h1 {
         color: $c-white;
-        font-size: xx-large;
+        font-size: 3vw;
         @include poppins-medium;
         width: 100%;
         height: 5%;
     }
 
     .cards {
-        height: 90%;
+        margin-top: 2%;
+        height: 86%;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -82,7 +83,7 @@
             h2 {
                 z-index: 3;
                 color: $c-white;
-                font-size: x-large;
+                font-size: 3vw;
                 @include poppins-medium;      
                 transition: color .5s ease;  
             }
@@ -90,7 +91,7 @@
             h3 {
                 z-index: 1;
                 color: $c-white;
-                font-size: x-large;
+                font-size: 2vw;
                 @include poppins-medium;      
                 position: absolute;
                 top: 5%;
@@ -100,7 +101,7 @@
             p {
                 z-index: 1;
                 color: $c-white;
-                font-size: medium;
+                font-size: 2vh;
                 @include poppins-medium;      
                 position: absolute;
                 top: 15%;

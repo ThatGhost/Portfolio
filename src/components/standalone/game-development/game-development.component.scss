@@ -34,7 +34,7 @@
     width: 95%;
     position: relative;
     overflow: hidden;
-    padding: 2.5%;
+    padding: 2%;
     transform-style: preserve-3d;
     .top {
         width: 100%;
@@ -42,13 +42,13 @@
         h1 {
             @include poppins-medium;
             color: $c-white;
-            font-size: xx-large;
+            font-size: 3vw;
         }
         p {
             @include poppins-medium;
             color: $c-white;
-            font-size: large;
-            width: 50%;
+            font-size: 1vw;
+            width: 60%;
         }    
     }
     input[type=radio] {
@@ -56,9 +56,9 @@
     }
     .container {
         width: 100%;
-        height: 80%;
+        height: 75%;
+        margin-top: 2%;
         position: relative;
-        margin-bottom: 20px;
         .card {
             position: absolute;
             width: 60%;
@@ -88,21 +88,26 @@
                 margin-left: 4%;
                 width: 90%;
                 font-size: medium;
+                height: fit-content;
+            }
+            
+            .stars {
+                margin-top: 5%;
             }
 
             .images {
                 z-index: inherit;
                 position: absolute;
-                bottom: 3%;
-                width: 90%;
-                max-height: 40%;
+                width: 35%;
+                height: 55%;
                 display: flex;
-                flex-direction: row;
-                margin-top: 3%;
-                margin-left: 5%;
-                gap: 20px;
+                flex-direction: column;
+                right: 5%;
+                bottom: 5%;
+                gap: 10px;
                 img {
-                    width: 50%;
+                    width: 100%;
+                    height: 50%;
                     border-radius: 20px;
                 }
             }

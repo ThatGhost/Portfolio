@@ -60,25 +60,17 @@
     
                 h1 {
                     color: $c-white;
-                    font-size: 100px;
+                    font-size: 5vw;
                     margin: 0;
-                    @include poppins-medium;
-    
-                    @media screen and (max-width: 600px) {
-                        font-size: 40px;
-                    }        
+                    @include poppins-medium;       
                 }
     
                 h2 {
                     color: $c-yellow;
-                    font-size: xx-large;
+                    font-size: 2vw;
                     padding-left: 2%;
                     margin-top: 1%;
-                    @include poppins-medium;
-    
-                    @media screen and (max-width: 600px) {
-                        font-size: large;
-                    }        
+                    @include poppins-medium;      
                 }
             }
     
@@ -87,7 +79,7 @@
                 margin-top: 2%;
                 width: 75%;
                 color: $c-white;
-                font-size: larger;
+                font-size: 1.5vw;
                 @include poppins-medium;
     
                 @media screen and (max-width: 600px) {
@@ -97,9 +89,9 @@
             }
 
             .socials {
-                width: 60%;
+                width: 100%;
                 margin-left: 4%;
-                margin-top: 5%;
+                margin-top: 2%;
 
                 .fa-twitter {
                     background: #55ACEE;
