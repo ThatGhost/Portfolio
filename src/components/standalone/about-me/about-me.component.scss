@@ -1,6 +1,41 @@
 @import "../../../assets/styles/colors";
 @import "../../../assets/styles/main";
 
+@property --gradient-rotation {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes spin {
+    0% { --gradient-rotation: 0deg; }
+    100% { --gradient-rotation: 360deg; }
+}
+
+@mixin rotatingBorder($color-1, $color-2) {
+    &::after, &::before {
+        content: "";
+        position: absolute;
+        inset: -0.5rem;
+        border-radius: inherit;
+        z-index: 0;
+        animation: spin 10s linear infinite; 
+        background: linear-gradient(var(--gradient-rotation),$color-1,$color-2); 
+    }
+
+    &::before {
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        z-index: 1;
+        background: $c-black; 
+    }
+
+    &:hover:after {
+        filter: blur(.5rem);
+    }
+}
+
 .about-me {
     height: 100%;
     width: 95%;
@@ -12,5 +47,48 @@
         color: $c-white;
         font-size: xx-large;
         @include poppins-medium;
+        width: 100%;
+        height: 5%;
+    }
+
+    .cards {
+        height: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 3%;
+    
+        .card {
+            width: 30%;
+            height: 90%;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;   
+            position: relative;
+            z-index: 1;
+            background-color: transparent;
+            cursor: pointer;
+
+            h2 {
+                z-index: inherit;
+                color: $c-white;
+                font-size: x-large;
+                @include poppins-medium;        
+            }
+        }
+
+        .hobbies {
+            @include rotatingBorder($c-yellow, $c-auqamarine);
+        }
+
+        .edu {
+            @include rotatingBorder($c-pink, $c-blue);
+        }
+
+        .personality {
+            @include rotatingBorder($c-blue, $c-yellow);
+        }
     }
 }
