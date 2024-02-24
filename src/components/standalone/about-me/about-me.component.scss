@@ -1,0 +1,16 @@
+@import "../../../assets/styles/colors";
+@import "../../../assets/styles/main";
+
+.about-me {
+    height: 100%;
+    width: 95%;
+    position: relative;
+    overflow: hidden;
+    padding: 2.5%;
+
+    h1 {
+        color: $c-white;
+        font-size: xx-large;
+        @include poppins-medium;
+    }
+}

@@ -95,6 +95,37 @@
                     width: 100%;
                 }        
             }
+
+            .socials {
+                width: 60%;
+                margin-left: 4%;
+                margin-top: 5%;
+
+                .fa-twitter {
+                    background: #55ACEE;
+                    color: white;
+                }
+
+                .fa-linkedin {
+                    background: #007bb5;
+                    color: white;
+                }
+
+                .fa-github {
+                    background: #2c4762;
+                    color: white;
+                }
+
+                .fa {
+                    padding: 20px;
+                    font-size: 30px;
+                    width: 30px;
+                    text-align: center;
+                    text-decoration: none;
+                    border-radius: 50%;
+                    margin-left: 1%;
+                }
+            }
         }    
     }
 

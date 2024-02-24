@@ -1,0 +1,188 @@
+@import "../../../assets/styles/colors";
+@import "../../../assets/styles/main";
+
+@property --gradient-rotation {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes spin {
+    0% { --gradient-rotation: 0deg; }
+    100% { --gradient-rotation: 360deg; }
+}
+
+@mixin spinningBackground($color1, $color2) {
+    &::before, &::after {
+        z-index: 0;
+        content: "";
+        position: absolute;
+        inset: 0.5rem;
+        border-radius: inherit;
+
+        background: linear-gradient(var(--gradient-rotation),$color1, $color2);
+        animation: spin 15s linear infinite; 
+    }
+    
+    &::after {
+        filter: blur(0.5rem);   
+    }
+}
+
+.game-development {
+    height: 100%;
+    width: 95%;
+    position: relative;
+    overflow: hidden;
+    padding: 2.5%;
+    transform-style: preserve-3d;
+    .top {
+        width: 100%;
+        height: 20%;
+        h1 {
+            @include poppins-medium;
+            color: $c-white;
+            font-size: xx-large;
+        }
+        p {
+            @include poppins-medium;
+            color: $c-white;
+            font-size: large;
+            width: 50%;
+        }    
+    }
+    input[type=radio] {
+        display: none;
+    }
+    .container {
+        width: 100%;
+        height: 70%;
+        position: relative;
+        margin-bottom: 20px;
+        .card {
+            position: absolute;
+            width: 60%;
+            height: 100%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            transition: transform .4s ease, opacity .2s ease;
+
+            cursor: pointer;
+            border-radius: 20px;
+            h1 {
+                z-index: inherit;
+                @include poppins-medium;
+                color: $c-white;
+                position: relative;
+                margin-top: 4%;
+                margin-left: 4%;
+                font-size: larger;
+            }
+            p {
+                z-index: inherit;
+                @include poppins-medium;
+                color: $c-white;
+                position: relative;
+                margin-top: 1.5%;
+                margin-left: 4%;
+                width: 90%;
+                font-size: medium;
+            }
+
+            .images {
+                z-index: inherit;
+                position: absolute;
+                bottom: 3%;
+                width: 90%;
+                max-height: 40%;
+                display: flex;
+                flex-direction: row;
+                margin-top: 3%;
+                margin-left: 5%;
+                gap: 20px;
+                img {
+                    width: 50%;
+                    border-radius: 20px;
+                }
+            }
+        }
+        .y-da {
+            @include spinningBackground($c-yellow, $c-dark-auqamarine);
+        } 
+        .b-da {
+            @include spinningBackground($c-black, $c-dark-auqamarine);
+        }
+        .p-da {
+            @include spinningBackground($c-pink, $c-dark-auqamarine);
+        }
+        .b-da {
+            @include spinningBackground($c-blue, $c-dark-auqamarine)
+        }
+    }
+}
+
+#item-g-1:checked ~ .container #card-g-5, 
+#item-g-2:checked ~ .container #card-g-1, 
+#item-g-3:checked ~ .container #card-g-2,
+#item-g-4:checked ~ .container #card-g-3,
+#item-g-5:checked ~ .container #card-g-4
+{
+    transform: translatex(-40%) scale(.8);
+    opacity: .4;
+    z-index: 1;
+
+    &::after, &::before {
+        opacity: 0.4;
+    }
+}
+  
+#item-g-1:checked ~ .container #card-g-2,
+#item-g-2:checked ~ .container #card-g-3,
+#item-g-3:checked ~ .container #card-g-4,
+#item-g-4:checked ~ .container #card-g-5,
+#item-g-5:checked ~ .container #card-g-1
+{
+    transform: translatex(40%) scale(.8);
+    opacity: .4;
+    z-index: 1;
+
+    &::after, &::before {
+        opacity: 0.4;
+    }
+}
+  
+#item-g-1:checked ~ .container #card-g-1,
+#item-g-2:checked ~ .container #card-g-2,
+#item-g-3:checked ~ .container #card-g-3,
+#item-g-4:checked ~ .container #card-g-4,
+#item-g-5:checked ~ .container #card-g-5
+{
+    transform: translatex(0) scale(1);
+    opacity: 1;
+    z-index: 2;
+
+    &::after, &::before {
+        opacity: 1;
+    }
+}
+
+#item-g-1:checked ~ .container #card-g-4, 
+#item-g-1:checked ~ .container #card-g-3, 
+#item-g-2:checked ~ .container #card-g-4, 
+#item-g-2:checked ~ .container #card-g-5,
+#item-g-3:checked ~ .container #card-g-1,
+#item-g-3:checked ~ .container #card-g-5,
+#item-g-4:checked ~ .container #card-g-1,
+#item-g-4:checked ~ .container #card-g-2,
+#item-g-5:checked ~ .container #card-g-3,
+#item-g-5:checked ~ .container #card-g-2
+{
+    transform: translatex(0) scale(.8);
+    opacity: 0;
+
+    &::after, &::before {
+        opacity: 0;
+        transform: translatex(0) scale(.8);
+    }
+}
