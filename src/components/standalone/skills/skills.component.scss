@@ -1,0 +1,184 @@
+@import "../../../assets/styles/colors";
+@import "../../../assets/styles/main";
+
+@property --gradient-rotation {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes spin {
+    0% { --gradient-rotation: 0deg; }
+    100% { --gradient-rotation: 360deg; }
+}
+
+@mixin spinningBackground($color1, $color2) {
+    &::before, &::after {
+        z-index: 0;
+        content: "";
+        position: absolute;
+        inset: 0.5rem;
+        border-radius: inherit;
+
+        background: linear-gradient(var(--gradient-rotation),$color1, $color2);
+        animation: spin 15s linear infinite; 
+    }
+    
+    &::after {
+        filter: blur(0.5rem);   
+    }
+}
+
+.skills {
+    height: 95%;
+    width: 95%;
+    position: relative;
+    overflow: hidden;
+    padding: 2.5%;
+
+    h1 {
+        @include poppins-medium;
+        color: $c-white;
+        font-size: 3vw;
+    }
+
+    .container {
+        width: 100%;
+        height: 85%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1%;
+
+        .section {
+            width: 100%;
+            height: 30%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 1%;
+            border-bottom: 2px solid $c-dark-auqamarine;
+    
+            .header {
+                position: relative;
+                
+                h2 {
+                    @include poppins-medium;
+                    color: $c-white;
+                    font-size: 1.5vw;  
+                    text-align: center;
+                    top: 40%;
+                    left: 0;
+                    right:0;
+                    position: absolute;
+                    z-index: 1;
+                }
+
+                width: 25%;
+                height: 100%;
+            }
+
+            .grid {
+                width: 75%;
+                height: 100%;
+
+                display: grid;
+                gap: 20px;
+
+                .card {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+
+                    h3 {
+                        @include poppins-medium;
+                        color: $c-white;
+                        font-size: 1vw;                
+                    }
+
+                    p {
+                        @include poppins-medium;
+                        color: $c-yellow;
+                        font-size: 1vw;                
+                    }
+                }
+            }
+        }
+
+        .programming {
+            .header {
+                border-radius: 20px;
+                &::before {
+                    z-index: 0;
+                    content: "";
+                    position: absolute;
+                    inset: -3px;
+                    right: -15px;
+                    border-radius: inherit;
+                    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 5% 100%);
+
+                    background: linear-gradient(var(--gradient-rotation),$c-pink, $c-dark-auqamarine);
+                    animation: spin 15s linear infinite; 
+                }
+            }
+
+            .grid {
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+            }
+        }
+
+        .languages {
+            .header {
+                border-radius: 20px;
+                &::before {
+                    z-index: 0;
+                    content: "";
+                    position: absolute;
+                    inset: -3px;
+                    left: -15px;
+                    border-radius: inherit;
+                    clip-path: polygon(0% 0%, 75% 0%, 95% 100%, 0% 100%);
+
+                    background: linear-gradient(var(--gradient-rotation),$c-yellow, $c-dark-auqamarine);
+                    animation: spin 15s linear infinite; 
+                }
+            }
+
+            .grid {
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr;
+
+                .card {
+                    h3 {
+                        font-size: 1.5vw;                
+                    }
+                }
+            }
+        }
+
+        .other-skills {
+            .header {
+                border-radius: 20px;
+                &::before {
+                    z-index: 0;
+                    content: "";
+                    position: absolute;
+                    inset: -3px;
+                    left: -15px;
+                    border-radius: inherit;
+                    clip-path: polygon(0% 0%, 75% 0%, 95% 100%, 0% 100%);
+
+                    background: linear-gradient(var(--gradient-rotation),$c-black, $c-dark-auqamarine);
+                    animation: spin 15s linear infinite; 
+                }
+            }
+
+            .grid {
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+            }
+        }
+    }
+}
