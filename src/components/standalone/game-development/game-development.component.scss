@@ -30,11 +30,11 @@
 }
 
 .game-development {
-    height: 90%;
+    height: 95%;
     width: 95%;
     position: relative;
     overflow: hidden;
-    padding: 2%;
+    padding: 2.5%;
     transform-style: preserve-3d;
     .top {
         width: 100%;
@@ -43,12 +43,21 @@
             @include poppins-medium;
             color: $c-white;
             font-size: 3vw;
+
+            @media only screen and (max-width: 499px) {
+                font-size: 8vw;  
+            }                     
         }
         p {
             @include poppins-medium;
             color: $c-white;
             font-size: 1vw;
-            width: 60%;
+            width: 50%;
+
+            @media only screen and (max-width: 499px) {
+                font-size: 3vw;
+                width: 90%;  
+            }                     
         }    
     }
     input[type=radio] {
@@ -56,9 +65,13 @@
     }
     .container {
         width: 100%;
-        height: 75%;
-        margin-top: 2%;
+        height: 80%;
         position: relative;
+
+        @media only screen and (max-width: 499px) {
+            margin-top: 30%;
+        } 
+
         .card {
             position: absolute;
             width: 60%;
@@ -66,10 +79,15 @@
             left: 0;
             right: 0;
             margin: auto;
-            transition: transform .4s ease, opacity .2s ease;
-
+            transition: transform .4s ease;
             cursor: pointer;
             border-radius: 20px;
+
+            @media only screen and (max-width: 499px) {
+                height: 60%;
+                width: 100%;
+            }                     
+
             h1 {
                 z-index: inherit;
                 @include poppins-medium;
@@ -77,22 +95,36 @@
                 position: relative;
                 margin-top: 4%;
                 margin-left: 4%;
-                font-size: larger;
+                font-size: 1.5vw;
+
+                @media only screen and (max-width: 499px) {
+                    font-size: 5vw;
+                }                         
             }
             p {
                 z-index: inherit;
                 @include poppins-medium;
                 color: $c-white;
                 position: relative;
-                margin-top: 1.5%;
+                margin-top: 2%;
                 margin-left: 4%;
                 width: 90%;
-                font-size: medium;
-                height: fit-content;
+                font-size: 1vw;
+                height: 20%;
+
+                @media only screen and (max-width: 499px) {
+                    font-size: 2.8vw;
+                    height: 30%;
+                }                         
             }
-            
+
             .stars {
-                margin-top: 5%;
+                margin-top: 10%;
+
+                @media only screen and (max-width: 499px) {
+                    margin-top: 5%;
+                    height: 5%;
+                } 
             }
 
             .images {
@@ -100,11 +132,18 @@
                 position: absolute;
                 width: 35%;
                 height: 55%;
+                aspect-ratio: 2 1;
                 display: flex;
                 flex-direction: column;
                 right: 5%;
                 bottom: 5%;
                 gap: 10px;
+
+                @media only screen and (max-width: 499px) {
+                    width: 45%;
+                    height: 50%;
+                } 
+
                 img {
                     width: 100%;
                     height: 50%;
@@ -137,6 +176,10 @@
     opacity: .4;
     z-index: 1;
 
+    @media only screen and (max-width: 499px) {
+        transform: translatey(-40%) scale(.8);
+    } 
+
     &::after, &::before {
         opacity: 0.4;
     }
@@ -152,6 +195,10 @@
     opacity: .4;
     z-index: 1;
 
+    @media only screen and (max-width: 499px) {
+        transform: translatey(40%) scale(.8);
+    } 
+
     &::after, &::before {
         opacity: 0.4;
     }
@@ -166,6 +213,10 @@
     transform: translatex(0) scale(1);
     opacity: 1;
     z-index: 2;
+
+    @media only screen and (max-width: 499px) {
+        transform: translatey(0) scale(1);
+    } 
 
     &::after, &::before {
         opacity: 1;
