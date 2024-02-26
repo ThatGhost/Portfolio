@@ -151,21 +151,27 @@
                 }
             }
         }
-        .happy-dev-fe {
+        .y-da {
             @include spinningBackground($c-yellow, $c-dark-auqamarine);
         } 
-        .happy-dev-be {
+        .b-da {
             @include spinningBackground($c-black, $c-dark-auqamarine);
         }
-        .protofolio {
+        .p-da {
             @include spinningBackground($c-pink, $c-dark-auqamarine);
+        }
+        .bl-da {
+            @include spinningBackground($c-blue, $c-dark-auqamarine)
         }
     }
 }
 
-#item-1:checked ~ .container #card-3, 
+#item-1:checked ~ .container #card-5, 
 #item-2:checked ~ .container #card-1, 
-#item-3:checked ~ .container #card-2 {
+#item-3:checked ~ .container #card-2,
+#item-4:checked ~ .container #card-3,
+#item-5:checked ~ .container #card-4
+{
     transform: translatex(-40%) scale(.8);
     opacity: .4;
     z-index: 1;
@@ -181,7 +187,10 @@
   
 #item-1:checked ~ .container #card-2,
 #item-2:checked ~ .container #card-3,
-#item-3:checked ~ .container #card-1 {
+#item-3:checked ~ .container #card-4,
+#item-4:checked ~ .container #card-5,
+#item-5:checked ~ .container #card-1
+{
     transform: translatex(40%) scale(.8);
     opacity: .4;
     z-index: 1;
@@ -197,7 +206,10 @@
   
 #item-1:checked ~ .container #card-1,
 #item-2:checked ~ .container #card-2,
-#item-3:checked ~ .container #card-3 {
+#item-3:checked ~ .container #card-3,
+#item-4:checked ~ .container #card-4,
+#item-5:checked ~ .container #card-5
+{
     transform: translatex(0) scale(1);
     opacity: 1;
     z-index: 2;
@@ -208,5 +220,25 @@
 
     &::after, &::before {
         opacity: 1;
+    }
+}
+
+#item-1:checked ~ .container #card-4, 
+#item-1:checked ~ .container #card-3, 
+#item-2:checked ~ .container #card-4, 
+#item-2:checked ~ .container #card-5,
+#item-3:checked ~ .container #card-1,
+#item-3:checked ~ .container #card-5,
+#item-4:checked ~ .container #card-1,
+#item-4:checked ~ .container #card-2,
+#item-5:checked ~ .container #card-3,
+#item-5:checked ~ .container #card-2
+{
+    transform: translatex(0) scale(.8);
+    opacity: 0;
+
+    &::after, &::before {
+        opacity: 0;
+        transform: translatex(0) scale(.8);
     }
 }

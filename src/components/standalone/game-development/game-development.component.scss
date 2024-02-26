@@ -30,11 +30,12 @@
 }
 
 .game-development {
-    height: 95%;
+    height: 94%;
     width: 95%;
     position: relative;
     overflow: hidden;
     padding: 2.5%;
+    padding-bottom: 0;
     transform-style: preserve-3d;
     .top {
         width: 100%;

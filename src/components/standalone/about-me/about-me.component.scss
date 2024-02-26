@@ -45,7 +45,6 @@
 
     &:hover:before {
         top: 100%;
-
         
         @media only screen and (max-width: 499px) {
             top: 0;
@@ -86,6 +85,22 @@
             flex-direction: column;
             margin-top: 4%;
         }
+
+        .fulltop {
+
+            h2 {
+                opacity: 0;
+            }
+
+            &::before {
+                top: 100% !important;
+
+                @media only screen and (max-width: 499px) {
+                    top: 0;
+                    left: 100% !important;
+                }                                 
+            }                
+        }        
     
         .card {
             width: 30%;
@@ -132,7 +147,7 @@
             p {
                 z-index: 1;
                 color: $c-white;
-                font-size: 1vw;
+                font-size: 1.2vw;
                 @include poppins-medium;      
                 position: absolute;
                 top: 15%;
